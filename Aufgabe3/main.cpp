@@ -19,8 +19,8 @@ int main()
     
     std::cout<<"\n\nAufgabe 1\n=========\n" <<std::endl;
     
-	// Wo steckt der eigentliche Konstruktoraufruf bei der folgenden Anweisung?
-	// Wieso kann die Funktion ones() mit dem Scope-Operator, ohne Objekt aufgerunfen werden?
+	// Wo steckt der eigentliche Konstruktoraufruf bei der folgenden Anweisung?     Der Aufruf befindet sich in der ones()-Funktion in der Matrix.cpp, welche die Matrix mit (1,1,1  ,1,1,1  ,1,1,1) konstruiert.
+	// Wieso kann die Funktion ones() mit dem Scope-Operator, ohne Objekt aufgerunfen werden?   ones() ist eine statische Funktion.
 	Matrix33 mat1 = Matrix33::ones();
 	
     // Ueber die Funktion Matrix33::get koennen sie einen Wert in der Matrix abfragen:
@@ -29,7 +29,7 @@ int main()
     // veraendern Sie die Funktion Matrix33::get so, 
     // dass Sie ueber diese Funktion auch Werte verändern koennen:
 	// Hinweis: Rueckgabewert als Referenz
-    // mat1.get(1, 1) = 5;
+    mat1.get(1, 1) = 5;
 
     std::cout<<mat1.toString() <<std::endl; 
 
@@ -46,11 +46,16 @@ int main()
     // Implementieren Sie die noetigen Operatoren in der Klasse, damit folgende
     // Ausdruecke richtig funktionieren und geben Sie nach jeder Rechnung die Ergebnisse aus:
     
-    //Matrix33 matResult1 = matA + matB;
-    //Matrix33 matResult2 = matA * matB;
-    //Matrix33 matResult3 = matA * 5;
-    //matResult1 += matB;
-    //Matrix33 matC = matResult2 += matB;
+    Matrix33 matResult1 = matA + matB;
+    std::cout << matResult1.toString() << std::endl;
+    Matrix33 matResult2 = matA * matB;
+    std::cout << matResult2.toString() << std::endl;
+    Matrix33 matResult3 = matA * 5.0;
+    std::cout << matResult3.toString() << std::endl;
+    matResult1 += matB;
+    std::cout << matResult1.toString() << std::endl;
+    Matrix33 matC = matResult2 += matB;
+    std::cout << matC.toString() << std::endl;
 
     
     // ------------------------------------------------------------------------
@@ -60,9 +65,9 @@ int main()
     std::cout<<"\n\nAufgabe 3\n=========\n" <<std::endl;
     
     // Testen Sie folgende Anweisung:
-    //Matrix33 matResult4 = 5 * matA;
+    // Matrix33 matResult4 = 5.0 * matA;
     
-    // Warum funktioniert die Anweisung nicht? aendern Sie den '*' Operator so,
+    // Warum funktioniert die Anweisung nicht? aendern Sie den '*' Operator so,     Warum? Weil Zahl und Matrix vertauscht wurden; es wird eine Matrix als Eingabe erwartet.
     // dass der Ausdruck funktioniert!
     
 
@@ -75,7 +80,8 @@ int main()
     
     Matrix33 matZ(1,3,5,  1,-2,1, 1.5, 3.5, -4);
     // Erzeugen Sie einen Konvertierungsoperator, so dass folgender Ausdruck klappt.
-    // double det = matZ;
+    double det = matZ;
+    std::cout << det << std::endl;
 
     // Der Konvertierungsoperator soll die Determinante der Matrix zurueckgeben.
     // Hinweis: http://de.wikipedia.org/wiki/Determinante#Berechnung
@@ -93,6 +99,5 @@ int main()
 	// z.B.
 	
     double y = matX.get(3,3);
-    
     return 0;
 }
