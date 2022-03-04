@@ -65,8 +65,8 @@ int main()
     std::cout<<"\n\nAufgabe 3\n=========\n" <<std::endl;
     
     // Testen Sie folgende Anweisung:
-    // Matrix33 matResult4 = 5.0 * matA;
-    
+    Matrix33 matResult4 = 5.0 * matA;
+    std::cout << matResult4.toString() << std::endl;
     // Warum funktioniert die Anweisung nicht? aendern Sie den '*' Operator so,     Warum? Weil Zahl und Matrix vertauscht wurden; es wird eine Matrix als Eingabe erwartet.
     // dass der Ausdruck funktioniert!
     

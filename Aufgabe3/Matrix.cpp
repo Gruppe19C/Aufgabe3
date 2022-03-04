@@ -10,6 +10,9 @@
 Matrix33::Matrix33()
 {
 }
+Matrix33::Matrix33(double d) {
+
+}
 
 
 Matrix33 Matrix33::zeros()
@@ -123,18 +126,18 @@ Matrix33 Matrix33::operator+=(Matrix33& rhs)
 }
 
 
-//Matrix33 Matrix33::operator*(double val, Matrix33& rhs)
-//{
-//    Matrix33 result;
-//    for (int i = 0; i < 3; i++)
-//    {
-//        for (int j = 0; j < 3; j++)
-//        {
-//            result.get(i, j) = val * rhs.get(i, j);
-//        }
-//    }
-//    return result;
-//}
+Matrix33 operator*(double val, Matrix33 rhs)
+{
+    Matrix33 result;
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            result.get(i, j) = val * rhs.get(i, j);
+        }
+    }
+    return result;
+}
 
 
 Matrix33::operator double()

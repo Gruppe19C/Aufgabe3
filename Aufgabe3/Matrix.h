@@ -9,7 +9,9 @@ class Matrix33
 {
 public:
 
-    // Static Class-Functions
+    Matrix33(double d);
+
+// Static Class-Functions
     static Matrix33 zeros();
     static Matrix33 ones();
 
@@ -37,6 +39,7 @@ public:
     Matrix33 operator+(Matrix33& rhs);
     Matrix33 operator*(double rhs);
     Matrix33 operator+=(Matrix33& rhs);
+    friend Matrix33& operator*(double&, Matrix33&);
     //static Matrix33 operator*(double val, Matrix33& rhs);
     operator double();
 
