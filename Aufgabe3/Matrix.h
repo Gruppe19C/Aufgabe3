@@ -40,7 +40,6 @@ public:
     Matrix33 operator*(double rhs);
     Matrix33 operator+=(Matrix33& rhs);
     friend Matrix33 operator*(double, Matrix33);
-    //static Matrix33 operator*(double val, Matrix33& rhs);
     operator double();
 
 private:
